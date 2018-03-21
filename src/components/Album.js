@@ -40,12 +40,12 @@ class Album extends Component {
 
    componentDidMount() {
       this.eventListeners = {
-      timeupdate: e => {
-        this.setState({ currentTime: this.audioElement.currentTime });
-      },
-      durationchange: e => {
-        this.setState({ duration: this.audioElement.duration });
-      }
+        timeupdate: e => {
+          this.setState({ currentTime: this.audioElement.currentTime });
+        },
+        durationchange: e => {
+          this.setState({ duration: this.audioElement.duration });
+        }
       };
       this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
       this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
@@ -146,7 +146,7 @@ class Album extends Component {
             currentTime={this.audioElement.currentTime}
             currentVolume={this.audioElement.currentVolume}
             duration={this.audioElement.duration}
-            formatTime={() => this.formatTime()}
+            formatTime={this.formatTime.bind()}
             handleSongClick={() => this.handleSongClick(this.state.currentSong)}
             handlePrevClick={() => this.handlePrevClick()}
             handleNextClick={() => this.handleNextClick()}
