@@ -108,15 +108,16 @@ class Album extends Component {
 
   render() {
     return (
-      <section className="album">
-        <section id="album-info">
-          <img id="album-cover-art" src={this.state.album.albumCover} alt="album cover" />
-          <div className="album-details">
-            <h1 id="album-title">{this.state.album.title}</h1>
-            <h2 className="artist">{this.state.album.artist}</h2>
-            <div id="release-info">{this.state.album.releaseInfo}</div>
-          </div>
-        </section>
+      <div>
+        <section className="album mdl-grid mdl-cell mdl-cell--12-col">
+          <section id="album-info">
+            <img id="album-cover-art" src={this.state.album.albumCover} alt="album cover" />
+            <div className="album-details">
+              <h2 id="album-title">{this.state.album.title}</h2>
+              <h3 className="artist">{this.state.album.artist}</h3>
+              <div id="release-info">{this.state.album.releaseInfo}</div>
+            </div>
+          </section>
           <table id="song-list">
             <colgroup>
               <col id="song-number-column" />
@@ -125,7 +126,7 @@ class Album extends Component {
             </colgroup>
             <tbody>
             {this.state.album.songs.map( (song, index)  =>
-                <tr className="song" key={index} onClick={() => this.handleSongClick(song)}>
+                <tr className={song === this.state.currentSong && this.state.isPlaying ? "song-play" : "song-pause"} key={index} onClick={() => this.handleSongClick(song)}>
                   <td>
                     <button>
                       <span className="song-number">{index + 1}</span>
@@ -140,6 +141,8 @@ class Album extends Component {
             }
             </tbody>
           </table>
+        </section>
+        <section className="playerBar">
           <PlayerBar
             isPlaying={this.state.isPlaying}
             currentSong={this.state.currentSong}
@@ -153,7 +156,8 @@ class Album extends Component {
             handleTimeChange={(e) => this.handleTimeChange(e)}
             handleVolumeChange={(e) => this.handleVolumeChange(e)}
           />
-      </section>
+        </section>
+      </div>
     )
   }
 }

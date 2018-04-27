@@ -2,23 +2,235 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+main {
+  max-width: 900px;
+  margin-top: 40px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.mdl-layout-transparent {
+  background: url('./assets/hero-image.jpg') center bottom / cover;
+  height: 60vh;
+}
+
+.mdl-layout-transparent .mdl-layout__header,
+.mdl-layout-transparent .mdl-layout__drawer-button {
   color: white;
 }
 
-.App-intro {
-  font-size: large;
+.hero-title {
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 3.4rem;
+  margin-top: 50px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.mdl-card {
+  text-align: center;
+  padding: 15px;
+}
+
+.library {
+  margin-top: 50px;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.library-link {
+  background-color: rgba(31, 104, 117, 0.4);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.library-link > a {
+  color: black;
+}
+
+.selling-points {
+  margin-top: 150px;
+}
+
+
+
+
+
+
+.album {
+  margin-top: 50px;
+  overflow: hidden;
+  background-color: hsla(0,0%,100%,0.95);
+  border-radius: 10px;
+  padding: 25px 75px 25px 75px;
+  color: black;
+  margin-bottom: 100px;
+}
+
+#album-cover-art {
+  float: left;
+  margin-right: 2rem;
+  position: relative;
+  width: 250px;
+  max-width: 33%;
+}
+
+#album-title {
+  font-size: 2.0rem;
+  margin: 0;
+}
+
+
+
+
+
+
+
+#song-list {
+  border-collapse: collapse;
+  clear: both;
+  font-weight: 100;
+  margin-top: 3rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+#song-number-column {
+  width: 40px;
+}
+#song-duration-column {
+  width: 80px;
+}
+
+tr {
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+  background: rgba(255, 255, 255, 0.01);
+  transition: all 0.2s ease;
+}
+
+tr:focus {
+  outline: aliceblue;
+}
+
+tr:hover .ion-play,
+tr.song-play .ion-pause,
+tr.song-pause .ion-play {
+  display: block;
+}
+
+tr .ion-play,
+tr .ion-pause,
+tr:hover .song-number,
+tr.song-play .ion-play,
+tr.song-play .song-number,
+tr.song-pause .ion-pause,
+tr.song-pause .song-number {
+  display: none;
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+}
+
+tr.song-play {
+  background: hsla(0, 0%, 0%, 0.1);
+}
+
+tr:hover .song-title {
+  color: hsla(0, 0%, 0%, 0.1);
+}
+
+tr:last-child {
+  border: none;
+}
+
+td {
+  padding: 0.75rem;
+}
+
+tr button {
+  border: none;
+  background: none;
+  color: black;
+  cursor: pointer;
+  padding: 0;
+}
+
+tr button:focus {
+  outline: none;
+  text-shadow: 2px 4px 3px hsla(0,0%,0%,0.25);
+}
+
+tr button:focus .song-number {
+  display: none;
+}
+
+tr button:focus .ion-play {
+  display: block;
+}
+
+tr.song-play button:focus .song-number,
+tr.song-play button:focus .ion-play {
+  display: none;
+}
+
+tr.song-play button:focus .ion-pause {
+  display: block;
+}
+
+.song-number {
+  color: hsla(0, 0%, 0%, 0.66);
+}
+
+.song-title {
+  color: hsla(0, 0%, 0%, 0.9);
+}
+
+.song-duration {
+  color: hsla(0, 0%, 0%, 0.5);
+  text-align: right;
+}
+
+.player-bar {
+  background: hsla(0, 0%, 0%, 0.1);
+  height: 100px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#buttons {
+  margin: 10px auto 10px auto;
+}
+
+#buttons button {
+  border: none;
+  background: none;
+  color: black;
+  cursor: pointer;
+  padding-right: 10px;
+  font-size: 20px;
+}
+
+#time-control, #volume-control {
+  display: inline-block;
+  text-align: center;
+}
+
+#time-control {
+  display: flex;
+  justify-content: center;
+}
+
+#volume-control {
+  float: right;
+}
+
+#volume-control > input, #time-control > input {
+  margin: 0px 10px 0px 10px;
+}
+
+.icon, .current-time, .total-time {
+  display: inline-block;
 }
